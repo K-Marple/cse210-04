@@ -5,16 +5,15 @@ The game where greed can kill you. Play is simple, move your character around to
 ## Project Structure
 The project files and folders are organized as such:
 ```
-root
-+-- greed
-  +-- data
-  +-- game
-  +-- __main__.py
-+-- README.md
+root                (project root folder)
++-- greed           (source code for game)
+  +-- game          (specific game classes)
+  +-- __main__.py   (entry point for program)
++-- README.md       (general info)
 ```
 
 ## Required Technologies
 * Python 3.10.2
 
 ## Authors
-Kayli Marple (taeshinoberu@outlook.com)
+* Kayli Marple (taeshinoberu@outlook.com)

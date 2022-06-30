@@ -1,0 +1,24 @@
+pattern after rfk classes (movement is different)
+add type to artifact for rock and gem
+acting position to change artifacts and check player position
+speed constant in main (random?)
+rock and gem value in main 
+score in main or artifact
+regulating speed? 
+sleep
+raylab? pyray?
+y is top, x if left
+
+Classes:
+director
+cast
+-player
+-artifacts
+services
+-keyboard
+-video
+
+Inheritance
+artifact inherits from player
+why? positions 
+what in artifact not in player? rock/gem vs mover. score.
