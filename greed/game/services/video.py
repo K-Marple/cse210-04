@@ -31,27 +31,27 @@ class Video:
         if self._debug == True:
             self._draw_grid()
 
-    def draw_player(self, player):
-        """Draws the given player's text on the screen.
+    def draw_actor(self, actor):
+        """Draws the given actor's text on the screen.
         
         Args:
-            player (Player): the player to draw.
+            actor (Actor): the actor to draw.
         """
-        text = player.get_text()
-        x = player.get_position().get_x()
-        y = player.get_position().get_y()
-        font_size = player.get_font_size()
-        color = player.get_color().to_tuple()
+        text = actor.get_text()
+        x = actor.get_position().get_x()
+        y = actor.get_position().get_y()
+        font_size = actor.get_font_size()
+        color = actor.get_color().to_tuple()
         pyray.draw_text(text, x, y, font_size, color)
 
-    def draw_players(self, players):
-        """Draws the text of the given list of players on the screen.
+    def draw_actors(self, actors):
+        """Draws the text of the given list of actors on the screen.
         
         Args:
-            players (list): a list of players members to draw.
+            actors (list): a list of actors members to draw.
         """
-        for player in players:
-            self.draw_player(player)
+        for actor in actors:
+            self.draw_actor(actor)
     
     def flush_buffer(self):
         """Copies the buffer contents to the screen. This method should be called at the end

@@ -1,31 +1,31 @@
-from game.cast.player import Player
+from game.cast.player import Actor
 
 
-class Mineral(Player):
+class Mineral(Actor):
     """A naturally occuring homogeneous solid.
     
     The responsibility of a Mineral is to provide a instance of itself.
     
     Attributes:
-        _type (string): the type of mineral (rock or gem).
+        _score (int): the score of mineral (rock = -1, gem = +1).
     """
 
     def __init__(self):
         super().__init__()
-        self._type = ""
+        self._score = 0
 
-    def get_type(self):
-        """Gets the mineral's type.
+    def get_score(self):
+        """Gets the mineral's score.
         
         Returns:
-            string: the type.
+            int: the score.
         """
-        return self._type
+        return self._score
 
-    def set_type(self, type):
-        """Updates the type to the given one.
+    def set_score(self, score):
+        """Updates the score to the given one.
         
         Args:
-            type (string): the given type.
+            score (int): the given score.
         """
-        self._type = type
+        self._score = score

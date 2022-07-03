@@ -2,10 +2,10 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 
-class Player:
+class Actor:
     """A visible, moveable thing that participates in the game.
     
-    The responsibility of Player is to keep track of its appearance, position and velocity in
+    The responsibility of Actor is to keep track of its appearance, position and velocity in
     2D space.
     
     Attributes:
@@ -17,7 +17,7 @@ class Player:
     """
 
     def __init__(self):
-        """Constructs a new Player."""
+        """Constructs a new Actor."""
         self._text = ""
         self._font_size = 15
         self._color = Color(255, 255, 255)
@@ -25,47 +25,47 @@ class Player:
         self._velocity = Point(0, 0)
 
     def get_color(self):
-        """Gets the player's color as a tuple of three ints (r, g, b).
+        """Gets the Actor's color as a tuple of three ints (r, g, b).
         
         Returns:
-            color: the player's text color.
+            color: the Actor's text color.
         """
         return self._color
 
     def get_font_size(self):
-        """Gets the player's font size.
+        """Gets the Actor's font size.
         
         Returns:
-            point: the player's position in 2D space.
+            point: the Actor's position in 2D space.
         """
         return self._font_size
 
     def get_position(self):
-        """Gets the player's position in 2D space.
+        """Gets the Actor's position in 2D space.
         
         Returns:
-            point: the player's position in 2D space.
+            point: the Actor's position in 2D space.
         """
         return self._position
 
     def get_text(self):
-        """Gets the player's textual representation.
+        """Gets the Actor's textual representation.
         
         Returns:
-            string: the player's textual representation.
+            string: the Actor's textual representation.
         """
         return self._text
 
     def get_velocity(self):
-        """Gets the player's speed and direction.
+        """Gets the Actor's speed and direction.
         
         Returns:
-            point: the player's speed and direction.
+            point: the Actor's speed and direction.
         """
         return self._velocity
 
     def move_next(self, max_x, max_y):
-        """Moves the player to its next position according to its velocity. Will wrap the position
+        """Moves the Actor to its next position according to its velocity. Will wrap the position
         from one side of the screen to the other when it reaches the given maximum x and y values.
         
         Args:
