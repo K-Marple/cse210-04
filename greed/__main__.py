@@ -1,6 +1,6 @@
 from random import randint, choice
 
-from game.cast.player import Actor
+from game.cast.actor import Actor
 from game.cast.mineral import Mineral
 from game.cast.cast import Cast
 

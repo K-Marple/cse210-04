@@ -1,4 +1,4 @@
-from game.cast.player import Actor
+from game.cast.actor import Actor
 
 
 class Mineral(Actor):
