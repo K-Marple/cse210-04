@@ -24,7 +24,7 @@ class Keyboard:
         """Gets the selected direction based on the currently pressed keys.
         
         Returns:
-            point: the selected direction.
+            Point: the selected direction.
         """
         dx = 0
         dy = 0

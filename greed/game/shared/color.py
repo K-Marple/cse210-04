@@ -1,3 +1,4 @@
+
 class Color:
     """A color.
     
