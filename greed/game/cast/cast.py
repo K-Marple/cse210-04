@@ -51,7 +51,7 @@ class Cast:
         return results
 
     def get_first_actor(self, group):
-        """Gets teh first actor in the given group.
+        """Gets the first actor in the given group.
         
         Args:
             group (string): the name of the group.

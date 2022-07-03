@@ -23,6 +23,7 @@ class Actor:
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
+        self._score = 0
 
     def get_color(self):
         """Gets the Actor's color as a tuple of three ints (r, g, b).
@@ -63,6 +64,14 @@ class Actor:
             point: the Actor's speed and direction.
         """
         return self._velocity
+
+    def get_score(self):
+        """Gets the Actor's score.
+        
+        Returns:
+            score (int): the Actor's score.
+        """
+        return self._score
 
     def move_next(self, max_x, max_y):
         """Moves the Actor to its next position according to its velocity. Will wrap the position
@@ -115,3 +124,11 @@ class Actor:
             velocity (Point): the given velocity.
         """
         self._velocity = velocity
+
+    def set_score(self, score):
+        """Updates the score to the given one.
+        
+        Args:
+            score (int): the given score.
+        """
+        self._score = score

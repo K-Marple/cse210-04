@@ -1,3 +1,9 @@
+from random import randint, choice
+
+from game.cast.mineral import Mineral
+from game.shared.color import Color
+from game.shared.point import Point
+
 class Director:
     """A person who directs the game.
     
@@ -50,16 +56,57 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         minerals = cast.get_actors("minerals")
+        score = cast.get_first_actor("scores")
 
         banner.set_text("")
         max_x = self._video.get_width()
         max_y = self._video.get_height()
         robot.move_next(max_x, max_y)
 
+        score = banner.get_score()
+        banner.set_score(score)
+        banner.set_text(f"Score: {score}")
+
         for mineral in minerals:
             if robot.get_position().equals(mineral.get_position()):
-                score = mineral.get_score()
+                score = banner.get_score() + mineral.get_score()
+                banner.set_score(score)
                 banner.set_text(f"Score: {score}")
+
+                cast.remove_actor("minerals", mineral)
+
+                text = choice(["o", "*"])
+                cols = (self._video.get_height() / self._video.get_cell_size())
+                rows = (self._video.get_width() / self._video.get_cell_size())
+                x = randint(1, cols - 1)
+                y = randint(1, rows - 1)
+                position = Point(x, y)
+                cell_size = self._video.get_cell_size()
+                position = position.scale(cell_size)
+
+                r = randint(0, 255)
+                g = randint(0, 255)
+                b = randint(0, 255)
+                color = Color(r, g, b)
+        
+                another_mineral = Mineral()
+                
+                if text == "o":
+                    another_mineral.set_score(-1)
+                elif text == "*":
+                    another_mineral.set_score(1)
+                another_mineral.set_text(text)
+                another_mineral.set_font_size(self._video.get_cell_size())
+                another_mineral.set_color(color)
+                another_mineral.set_position(position)
+                another_mineral.set_velocity(Point(0, 4))
+
+                cast.add_actor("minerals", another_mineral)
+            
+            position = mineral.get_position()
+            max_x = self._video.get_width()
+            max_y = self._video.get_height()
+            mineral.move_next(max_x, max_y)
 
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

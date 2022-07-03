@@ -58,7 +58,7 @@ class Video:
         of the game's output phase."""
         pyray.end_drawing()
 
-    def get_call_size(self):
+    def get_cell_size(self):
         """Gets the video screen's cell size.
         
         Returns:

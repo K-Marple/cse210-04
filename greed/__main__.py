@@ -20,7 +20,7 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Greed"
+CAPTION = "Greed Game"
 WHITE = Color(255, 255, 255)
 DEFAULT_MINERALS = 20
 
@@ -40,7 +40,7 @@ def main():
 
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = 580
     position = Point(x, y)
 
     robot = Actor()
@@ -51,15 +51,9 @@ def main():
     cast.add_actor("robots", robot)
 
     # create the minerals
-    score = 0
     for n in range(DEFAULT_MINERALS):
-        n = ["*", "o"]
-        text = choice(n)
-        if text == "*":
-            score += 1
-        elif text == "o":
-            score -= 1
-
+        text = choice(["*", "o"])
+        
         x = randint(1, COLS - 1)
         y = randint(1, ROWS - 1)
         position = Point(x, y)
@@ -71,12 +65,22 @@ def main():
         color = Color(r, g, b)
 
         mineral = Mineral()
-        mineral.set_text(text)
-        mineral.set_font_size(FONT_SIZE)
-        mineral.set_color(color)
-        mineral.set_position(position)
-        mineral.set_score(score)
-        cast.add_actor("minerals", mineral)
+        if text == "o":
+            mineral.set_text(text)
+            mineral.set_font_size(FONT_SIZE)
+            mineral.set_color(color)
+            mineral.set_position(position)
+            mineral.set_velocity(Point(0, 4))
+            mineral.set_score(-1)
+            cast.add_actor("minerals", mineral)
+        elif text == "*":
+            mineral.set_text(text)
+            mineral.set_font_size(FONT_SIZE)
+            mineral.set_color(color)
+            mineral.set_position(position)
+            mineral.set_velocity(Point(0, 4))
+            mineral.set_score(1)
+            cast.add_actor("minerals", mineral)
 
     # start the game
     keyboard = Keyboard(CELL_SIZE)
